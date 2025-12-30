@@ -7,7 +7,7 @@ export default function spayd(paymentDescription: PaymentDescription): string {
 
 	for (const key in paymentDescription) {
 		if (!keyMap[key]) {
-			throw 'Was given an unsupported key: ' + key;
+			throw new Error('Was given an unsupported key: ' + key);
 		}
 		keys.push(new keyMap[key](paymentDescription[key]));
 	}
