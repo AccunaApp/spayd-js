@@ -46,7 +46,7 @@ var Key = /** @class */ (function () {
         this.value = value;
         this.structure = structure;
         if (this.structure && !this.isValid()) {
-            throw 'The ' + this.name + ' key is in wrong format!';
+            throw new Error('The ' + this.name + ' key is in wrong format!');
         }
     }
     Key.prototype.isValid = function () {
@@ -62,7 +62,7 @@ var Acc = /** @class */ (function (_super) {
     function Acc(value) {
         var _this = _super.call(this, 'acc', value) || this;
         if (!_this.isValid()) {
-            throw 'The ' + _this.name + ' key is in wrong format!';
+            throw new Error('The ' + _this.name + ' key is in wrong format!');
         }
         return _this;
     }
@@ -82,7 +82,7 @@ var AltAcc = /** @class */ (function (_super) {
     function AltAcc(value) {
         var _this = _super.call(this, 'alt-acc', value.join(',')) || this;
         if (!_this.isValid()) {
-            throw 'The ' + _this.name + ' key is in wrong format!';
+            throw new Error('The ' + _this.name + ' key is in wrong format!');
         }
         return _this;
     }
@@ -128,7 +128,7 @@ var Dt = /** @class */ (function (_super) {
         var _this = _super.call(this, 'dt', format__default['default'](value, 'yyyyMMdd')) || this;
         _this.originalDate = value;
         if (!_this.isValid()) {
-            throw 'The ' + _this.name + ' key is in wrong format!';
+            throw new Error('The ' + _this.name + ' key is in wrong format!');
         }
         return _this;
     }
@@ -208,7 +208,7 @@ var keyMap = {
     xvs: Xvs,
     xss: Xss,
     xks: Xks,
-    xid: Xid
+    xid: Xid,
 };
 
 function spayd(paymentDescription) {
@@ -216,7 +216,7 @@ function spayd(paymentDescription) {
     var keys = [];
     for (var key in paymentDescription) {
         if (!keyMap[key]) {
-            throw 'Was given an unsupported key: ' + key;
+            throw new Error('Was given an unsupported key: ' + key);
         }
         keys.push(new keyMap[key](paymentDescription[key]));
     }

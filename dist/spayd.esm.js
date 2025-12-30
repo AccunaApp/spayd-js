@@ -8,7 +8,7 @@ class Key {
         this.value = value;
         this.structure = structure;
         if (this.structure && !this.isValid()) {
-            throw 'The ' + this.name + ' key is in wrong format!';
+            throw new Error('The ' + this.name + ' key is in wrong format!');
         }
     }
     isValid() {
@@ -22,7 +22,7 @@ class Acc extends Key {
     constructor(value) {
         super('acc', value);
         if (!this.isValid()) {
-            throw 'The ' + this.name + ' key is in wrong format!';
+            throw new Error('The ' + this.name + ' key is in wrong format!');
         }
     }
     isValid() {
@@ -39,7 +39,7 @@ class AltAcc extends Key {
     constructor(value) {
         super('alt-acc', value.join(','));
         if (!this.isValid()) {
-            throw 'The ' + this.name + ' key is in wrong format!';
+            throw new Error('The ' + this.name + ' key is in wrong format!');
         }
     }
     isValid() {
@@ -74,7 +74,7 @@ class Dt extends Key {
         super('dt', format(value, 'yyyyMMdd'));
         this.originalDate = value;
         if (!this.isValid()) {
-            throw 'The ' + this.name + ' key is in wrong format!';
+            throw new Error('The ' + this.name + ' key is in wrong format!');
         }
     }
     isValid() {
@@ -136,7 +136,7 @@ const keyMap = {
     xvs: Xvs,
     xss: Xss,
     xks: Xks,
-    xid: Xid
+    xid: Xid,
 };
 
 function spayd(paymentDescription) {
@@ -144,7 +144,7 @@ function spayd(paymentDescription) {
     const keys = [];
     for (const key in paymentDescription) {
         if (!keyMap[key]) {
-            throw 'Was given an unsupported key: ' + key;
+            throw new Error('Was given an unsupported key: ' + key);
         }
         keys.push(new keyMap[key](paymentDescription[key]));
     }
