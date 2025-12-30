@@ -23,8 +23,12 @@
 	},
 	"typesVersions": {
 		"*": {
-			"esm": ["./dist/types"],
-			"cjs": ["./dist/types"]
+			"esm": [
+				"./dist/types"
+			],
+			"cjs": [
+				"./dist/types"
+			]
 		}
 	},
 	"scripts": {
@@ -35,6 +39,7 @@
 		"@rollup/plugin-typescript": "^8.2.1",
 		"@types/jest": "^26.0.23",
 		"jest": "^27.0.6",
+		"prettier": "^3.7.4",
 		"rollup": "^2.52.7",
 		"rollup-plugin-commonjs": "^10.0.1",
 		"rollup-plugin-node-resolve": "^5.1.0",
