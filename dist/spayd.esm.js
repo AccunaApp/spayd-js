@@ -51,7 +51,7 @@ class AltAcc extends Key {
 }
 class Am extends Key {
     constructor(value) {
-        super('am', value, /^[1-9][0-9]*(\.[0-9][0-9])?$/);
+        super('am', value, /^(?!0$)(?!0.00)[0-9]*(\.[0-9][0-9])?$/);
     }
 }
 class Cc extends Key {

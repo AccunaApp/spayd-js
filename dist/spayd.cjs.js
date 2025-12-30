@@ -97,7 +97,7 @@ var AltAcc = /** @class */ (function (_super) {
 var Am = /** @class */ (function (_super) {
     __extends(Am, _super);
     function Am(value) {
-        return _super.call(this, 'am', value, /^[1-9][0-9]*(\.[0-9][0-9])?$/) || this;
+        return _super.call(this, 'am', value, /^(?!0$)(?!0.00)[0-9]*(\.[0-9][0-9])?$/) || this;
     }
     return Am;
 }(Key));
